@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css"
+    />
+    <style>
+      @font-face {
+        font-family: Kommissar Condensed;
+        src: url(./fonts/KommissarCondensed-Medium.woff2);
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url(./fonts/Roboto-Regular.ttf);
+      }
+
+      .first_slider_container {
+        max-width: 100%;
+        padding-top: 200px;
+      }
+
+      .first_slider_container .swiper-container {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .first_slider_container .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 488px;
+        margin-right: 20px;
+      }
+
+      .first_slider_container .swiper-slide img {
+        width: 100%;
+        height: 488px;
+        object-fit: cover;
+        border: 2px solid #ffc201;
+        border-radius: 50px;
+      }
+
+      .first_slider_container .swiper-slide h4 {
+        text-align: center;
+        font: normal normal bold 70px Kommissar Condensed;
+        letter-spacing: 2px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-top: 60px;
+        margin-bottom: 34px;
+      }
+
+      .first_slider_container .swiper-slide p {
+        text-align: center;
+        font-family: "Roboto";
+        letter-spacing: 0px;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 21px;
+        line-height: 28px;
+        padding: 0 15px;
+      }
+
+      @media (max-width: 767px) {
+        .first_slider_container .swiper-slide {
+          width: 288px;
+          margin-right: 27px;
+        }
+        .first_slider_container .swiper-slide img {
+          width: 100%;
+          height: 288px;
+        }
+
+        .first_slider_container .swiper-slide h4 {
+          text-align: center;
+          font-size: 30px;
+          margin-top: 20px;
+          margin-bottom: 14px;
+        }
+
+        .first_slider_container .swiper-slide p {
+          font-size: 16px;
+          line-height: 24px;
+          padding: 0px 8px;
+        }
+      }
+
+      .second_slider_container .swiper-container .swiper-slide {
+        width: 645px;
+        height: 900px;
+        background-color: black;
+        text-align: center;
+        box-shadow: 50px 213px 99px #00000029;
+        border: 4px solid #66e0db;
+        border-radius: 95px;
+        position: relative;
+      }
+
+      .second_slider_container .swiper-container .swiper-slide p {
+        font-size: 50px;
+        line-height: 70px;
+        font-family: "Kommissar Condensed";
+        color: #66e0db;
+      }
+
+      .second_slider_container .swiper-container .swiper-slide img {
+        position: absolute;
+        width: 966px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .second_slider_container .swiper-container {
+        width: 100%;
+        padding-top: 400px;
+      }
+
+      /* Navigation Container */
+      .second_slider_container .swiper-navigation {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 64px;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      /* Navigation Buttons */
+      .second_slider_container .swiper-button-next,
+      .second_slider_container .swiper-button-prev {
+        background-image: none;
+        width: 0;
+        height: 0;
+      }
+
+      /* Next Button Arrow */
+      .second_slider_container .swiper-button-next {
+        border-top: 25px solid transparent;
+        border-left: 50px solid #ffc201;
+        border-bottom: 25px solid transparent;
+      }
+
+      /* Previous Button Arrow */
+      .second_slider_container .swiper-button-prev {
+        border-top: 25px solid transparent;
+        border-right: 50px solid #ffc201;
+        border-bottom: 25px solid transparent;
+      }
+
+      .slider_row {
+        background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 1)
+          ),
+          url("https://btusdev.wpengine.com/wp-content/uploads/2024/08/UFO-House-scaled.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .slider_row h2 {
+        padding-top: 600px;
+        max-width: 902px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-family: "Kommissar Condensed";
+        font-weight: bold;
+        font-size: 100px;
+        line-height: 101px;
+        letter-spacing: 0px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      .yellow {
+        color: #ffc201;
+      }
+
+      .second_slider_container .swiper-slide.swiper-slide-active {
+        transform: translate3d(0px, -215px, 0px) rotateX(0deg) rotateY(0deg) !important;
+      }
+
+      .slider_row .content {
+        color: #ffffff;
+        text-align: center;
+        max-width: 1104px;
+        margin: auto;
+        padding: 30px 0;
+      }
+
+      .slider_row .content h3 {
+        font-weight: bold;
+        font-size: 41px;
+        line-height: 54px;
+        font-family: Roboto;
+        letter-spacing: 0px;
+      }
+
+      .slider_row .content p {
+        font-size: 21px;
+        line-height: 28px;
+        font-family: Roboto;
+        letter-spacing: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider_row">
+      <div class="first_slider_container">
+        <div class="swiper-container firstSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/New-york.jpg"
+                alt="New York"
+              />
+              <h4>NEW YORK, NEW YORK</h4>
+              <p>
+                There’s a reason Men in Black takes place in the Big Apple! As
+                the second location on our list, your odds of having an alien
+                encounter in the city are like no other with 313 encounters
+                taking place in the last 11 years. July is the best time to spot
+                aliens in the city, so embrace the heat of summer in the city
+                and keep your eyes on the skies.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/Las-Vegas.jpg"
+                alt="Las Vegas"
+              />
+              <h4>LAS VEGAS, NEVADA</h4>
+              <p>
+                Las Vegas is not just famous for its vibrant nightlife and
+                casinos, but also for its unique connection to UFO and alien
+                lore. With 309 alien encounters taking place since 2013. If you
+                want to increase your gambling odds make sure to visit Las Vegas
+                in July for peak UFO encounter potential.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/Portland.jpg"
+                alt="Portland"
+              />
+              <h4>PORTLAND, OREGON</h4>
+              <p>
+                “Keep Portland Weird” is a saying adamantly used by this city,
+                enhancing its already quirky reputation. With 279 UFO sightings
+                since 2013, Portland has earned the title of the alien capital
+                of the Pacific Northwest region. Make sure to visit in July to
+                increase your odds of an alien encounter in this quirky city.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/Tuscon.jpg"
+                alt="Tucson"
+              />
+              <h4>TUCSON, ARIZONA</h4>
+              <p>
+                Tucson is known for its clear night skies and an affinity for
+                space. With 244 UFO encounters reported since 2013, Tucson has a
+                fascinating connection to UFOs and extraterrestrial phenomena.
+                With November, being the peak month for sightings, Tucson sees
+                an influx of enthusiasts eager to catch a glimpse of unexplained
+                aerial phenomena.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>
+        WHEN YOU ARE MOST LIKELY TO SPOT A UFO<span class="yellow">
+          IN YOUR STATE</span
+        >
+      </h2>
+      <div class="second_slider_container">
+        <!-- Slider main container -->
+        <div class="swiper-container secondSwiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <p>01 - California</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/01.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>02 - Florida</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/02.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>03 - Washington</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/03.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>04 - New York</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/04.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>05 - Pennsylvania</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/05.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>06 - Texas</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/06.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>07 - Arizona</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/07.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>08 - Ohio</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/08.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>09 - North Carolina</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/09.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>10 - Colorado</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/10.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>11 - Oregon</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/11.png"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide">
+              <p>12 - Illinois</p>
+              <img
+                src="https://btusdev.wpengine.com/wp-content/uploads/2024/08/12.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- If we need navigation buttons -->
+
+          <div class="swiper-navigation">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <h3>9:00pm is the Best Time to Spot an UFO Across the Country</h3>
+        <p>
+          UFO sightings peak as the sun sets! 9:00 PM is prime time to spot one
+          streaking across the sky. Grab your binoculars or telescope and enjoy
+          the show!
+        </p>
+
+        <h3>July is the Best Month to Spot an UFO Across the Country</h3>
+        <p>
+          Maybe it’s real, or maybe it’s just the summer heat playing tricks on
+          your eyes. Either way, July is the month when you’re most likely to
+          spot an UFO in the night sky!
+        </p>
+        <p>
+          From Phoenix to New York, there is no shortage of flying saucers and
+          flashing lights across the U.S. Why not increase your odds and test
+          your luck with your very own extraterrestrial adventure?
+        </p>
+        <p>
+          BetUS is your go-to destination for casino games and experiences that
+          are out of this world.
+        </p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper(".firstSwiper", {
+          slidesPerView: 1.5,
+          spaceBetween: 30,
+          loop: true,
+          speed: 1000,
+          autoplay: {
+            delay: 2000,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2.5,
+              spaceBetween: 40,
+            },
+            1440: {
+              slidesPerView: 3.5,
+              spaceBetween: 50,
+            },
+          },
+        });
+
+        var mySwiper = new Swiper(".secondSwiper", {
+          loop: true,
+          speed: 1000,
+          autoplay: {
+            delay: 3000,
+          },
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 80,
+            depth: 200,
+            modifier: 1,
+            slideShadows: false,
+          },
+
+          // Navigation arrows
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

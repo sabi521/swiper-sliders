@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css"
+    />
+    <style>
+      @font-face {
+        font-family: Kommissar Condensed;
+        src: url(./fonts/KommissarCondensed-Medium.woff2);
+      }
+
+      .second_slider_container .swiper-container .swiper-slide {
+        width: 645px;
+        height: 900px;
+        background-color: black;
+        text-align: center;
+        box-shadow: 50px 213px 99px #00000029;
+        border: 4px solid #66e0db;
+        border-radius: 95px;
+        position: relative;
+      }
+
+      .second_slider_container .swiper-container .swiper-slide p {
+        font-size: 50px;
+        line-height: 70px;
+        font-family: "Kommissar Condensed";
+        color: #66e0db;
+      }
+
+      .second_slider_container .swiper-container .swiper-slide img {
+        position: absolute;
+        width: 966px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .second_slider_container .swiper-container {
+        width: 100%;
+      }
+
+      .second_slider_container .swiper-wrapper {
+        padding-top: 100px;
+      }
+
+      /* Navigation Container */
+      .second_slider_container .swiper-navigation {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 64px;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      /* Navigation Buttons */
+      .second_slider_container .swiper-button-next,
+      .second_slider_container .swiper-button-prev {
+        background-image: none;
+        width: 0;
+        height: 0;
+      }
+
+      /* Next Button Arrow */
+      .second_slider_container .swiper-button-next {
+        border-top: 25px solid transparent;
+        border-left: 50px solid #ffc201;
+        border-bottom: 25px solid transparent;
+      }
+
+      /* Previous Button Arrow */
+      .second_slider_container .swiper-button-prev {
+        border-top: 25px solid transparent;
+        border-right: 50px solid #fcf9f1;
+        border-bottom: 25px solid transparent;
+      }
+
+      .slider_row {
+        background-image: url(./images/UFO\ -\ House.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      h2 {
+        max-width: 902px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-family: "Kommissar Condensed";
+        font-weight: bold;
+        font-size: 100px;
+        line-height: 101px;
+        letter-spacing: 0px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      .yellow {
+        color: #ffc201;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider_row">
+      <h2>
+        WHEN YOU ARE MOST LIKELY TO SPOT A UFO<span class="yellow">
+          IN YOUR STATE</span
+        >
+      </h2>
+      <div class="second_slider_container">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <p>01 - California</p>
+              <img src="./images/Cards/01.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>02 - Florida</p>
+              <img src="./images/Cards/02.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>03 - Washington</p>
+              <img src="./images/Cards/03.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>04 - New York</p>
+              <img src="./images/Cards/04.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>05 - Pennsylvania</p>
+              <img src="./images/Cards/05.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>06 - Texas</p>
+              <img src="./images/Cards/06.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>07 - Arizona</p>
+              <img src="./images/Cards/07.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>08 - Ohio</p>
+              <img src="./images/Cards/08.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>09 - North Carolina</p>
+              <img src="./images/Cards/09.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>10 - Colorado</p>
+              <img src="./images/Cards/10.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>11 - Oregon</p>
+              <img src="./images/Cards/11.png" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p>12 - Illinois</p>
+              <img src="./images/Cards/12.png" alt="" />
+            </div>
+          </div>
+          <!-- If we need navigation buttons -->
+
+          <div class="swiper-navigation">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var mySwiper = new Swiper(".swiper-container", {
+          loop: true,
+          speed: 1000,
+          autoplay: {
+            delay: 3000,
+          },
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 80,
+            depth: 200,
+            modifier: 1,
+            slideShadows: false,
+          },
+
+          // Navigation arrows
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
